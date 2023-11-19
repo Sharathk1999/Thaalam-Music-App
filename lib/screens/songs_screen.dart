@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thaalam_music_app/widgets/header_song_screen.dart';
+import 'package:thaalam_music_app/widgets/header_song_widget.dart';
 import 'package:thaalam_music_app/widgets/song_list_tile.dart';
 import 'package:thaalam_music_app/widgets/trending_song_slider.dart';
 
@@ -18,7 +18,7 @@ class SongsScreen extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              HeaderSongScreen(),
+              HeaderSongWidget(),
               const SizedBox(
                 height: 22,
               ),
