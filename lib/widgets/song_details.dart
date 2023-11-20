@@ -48,7 +48,7 @@ class SongDetailsWidget extends StatelessWidget {
                         FontAwesomeIcons.download,
                         color: whiteColor,
                       ),
-                      const SizedBox(width: 10,),
+                       SizedBox(width: 10,),
                      
                     ],
                   ),
