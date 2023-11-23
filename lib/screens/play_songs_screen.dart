@@ -4,39 +4,40 @@ import 'package:thaalam_music_app/widgets/play_volume_container.dart';
 import 'package:thaalam_music_app/widgets/song_control_button.dart';
 import 'package:thaalam_music_app/widgets/song_details.dart';
 
-class PlaySongsScreen extends StatefulWidget {
-  const PlaySongsScreen({super.key});
+class PlaySongsScreen extends StatelessWidget {
 
-  @override
-  State<PlaySongsScreen> createState() => _PlaySongsScreenState();
-}
+  
+  const PlaySongsScreen({super.key,});
 
-class _PlaySongsScreenState extends State<PlaySongsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
       body: SafeArea(
         child: Padding(
-          padding:  EdgeInsets.all(10),
+          padding:const  EdgeInsets.all(10),
           child: SingleChildScrollView(
             child: Column(
               children: [
                
-                HeaderPlayScreenWidget(),
+              const  HeaderPlayScreenWidget(),
                  
-                PlayVolumeContainer(),
-                 SizedBox(
+               const PlayVolumeContainer(
+                
+                ),
+             const    SizedBox(
                   height: 10,
                 ),
-                SongDetailsWidget(),
-                 SizedBox(
+                SongDetailsWidget(
+                
+                ),
+              const   SizedBox(
                   height: 10,
                 ),
                 
-                 SizedBox(
+              const   SizedBox(
                   height: 10,
                 ),
-                SongControlButton(),
+              const  SongControlButton(),
             
               ],
             ),

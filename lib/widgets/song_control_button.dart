@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:thaalam_music_app/config/colors.dart';
+import 'package:thaalam_music_app/controller/song_controller.dart';
 import 'package:thaalam_music_app/controller/song_player_controller.dart';
 
 class SongControlButton extends StatelessWidget {
@@ -10,20 +11,49 @@ class SongControlButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SongPlayerController songPlayerController = Get.put(SongPlayerController());
+    SongController songController = Get.put(SongController());
     return Column(
       children: [
-        const Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("1:05"),
-            Text(
-              "/",
-              style: TextStyle(
-                fontSize: 20,
+        Obx(
+          () => Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "${songPlayerController.currentTime}",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: primaryColor.withOpacity(0.4),
+                ),
               ),
-            ),
-            Text("4:00"),
-          ],
+              Expanded(
+                child: Obx(
+                  () => Slider(
+                    thumbColor: whiteColor,
+                    value: songPlayerController.sliderVal.value
+                        .clamp(0.0, songPlayerController.sliderVal.value),
+                    onChanged: (value) {
+                      songPlayerController.sliderVal.value = value;
+
+                      Duration songPos = Duration(seconds: value.toInt());
+
+                      songPlayerController.changeSongSliderPos(songPos);
+                    },
+                    min: 0,
+                    max: songPlayerController.sliderMaxVal.value,
+                  ),
+                ),
+              ),
+              Text(
+                "${songPlayerController.totalTime}",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: primaryColor.withOpacity(0.4),
+                ),
+              ),
+            ],
+          ),
         ),
         const SizedBox(
           height: 25,
@@ -32,7 +62,9 @@ class SongControlButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                songController.playPrevSong();
+              },
               icon: const Icon(
                 FontAwesomeIcons.backward,
               ),
@@ -40,7 +72,7 @@ class SongControlButton extends StatelessWidget {
             Obx(
               () => songPlayerController.isPlaying.value
                   ? InkWell(
-                    borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(50),
                       onTap: () {
                         songPlayerController.pauseSong();
                       },
@@ -49,8 +81,8 @@ class SongControlButton extends StatelessWidget {
                             borderRadius: BorderRadius.circular(50),
                             color: primaryColor.withOpacity(0.3)),
                         padding: const EdgeInsets.all(10),
-                        child:const Center(
-                          child:  Icon(
+                        child: const Center(
+                          child: Icon(
                             FontAwesomeIcons.pause,
                             size: 30,
                           ),
@@ -58,12 +90,12 @@ class SongControlButton extends StatelessWidget {
                       ),
                     )
                   : InkWell(
-                    borderRadius: BorderRadius.circular(50),
-                    onTap: () {
-                      songPlayerController.resumeSong();
-                    },
-                    child: Container(
-                      alignment: Alignment.center,
+                      borderRadius: BorderRadius.circular(50),
+                      onTap: () {
+                        songPlayerController.resumeSong();
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
                             color: primaryColor.withOpacity(0.3)),
@@ -75,10 +107,12 @@ class SongControlButton extends StatelessWidget {
                           ),
                         ),
                       ),
-                  ),
+                    ),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                songController.playNextSong();
+              },
               icon: const Icon(
                 FontAwesomeIcons.forward,
               ),
@@ -91,20 +125,24 @@ class SongControlButton extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            IconButton(
-              onPressed: () {},
+           Obx(() =>  IconButton(
+              onPressed: () {
+                songPlayerController.playSongShuffled();
+              },
               icon: Icon(
                 FontAwesomeIcons.shuffle,
-                color: primaryColor.withOpacity(0.3),
+                color:songPlayerController.isShuffled.value ?primaryColor : primaryColor.withOpacity(0.3),
               ),
-            ),
-            IconButton(
-              onPressed: () {},
+            ),),
+            Obx(() => IconButton(
+              onPressed: () {
+                songPlayerController.setSongLoop();
+              },
               icon: Icon(
                 FontAwesomeIcons.repeat,
-                color: primaryColor.withOpacity(0.3),
+                color:songPlayerController.isLoop.value ? primaryColor: primaryColor.withOpacity(0.3),
               ),
-            ),
+            ),),
             IconButton(
               onPressed: () {},
               icon: Icon(

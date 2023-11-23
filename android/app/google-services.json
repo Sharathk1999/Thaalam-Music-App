@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "226634531652",
+    "project_id": "thaalam-audio-app",
+    "storage_bucket": "thaalam-audio-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226634531652:android:5e9eaf76e4f0798b6a8d11",
+        "android_client_info": {
+          "package_name": "com.example.thaalam_music_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIorrRZvjdpqKnNgbELMycZGhINAjiTh4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
