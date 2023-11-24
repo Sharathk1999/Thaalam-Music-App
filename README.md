@@ -1,16 +1,31 @@
-# thaalam_music_app
 
-A new Flutter project.
+# thaalam 🎵
 
-## Getting Started
+A simple audio player app.(40%completed)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![App Screenshot](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9NqCkhrhfOYmRvHa8RELikjljmzVyB9EqSbyisVsP6DH1xw0D3_l1D8rzIZYdeQ9-NMD00_z57jwXHGJ_ot2peMlXX2Xd52hG1QWCwGkrbWWe1CEyM1jcVGUbrX0rLuLJYUL2jcMfrMT-eufl1xlVNlq9ll_JSFcbtouEQC5c-enbKHafRznVFKOU32Hk/s1080/Level.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+## Features
+
+- Play/Pause
+- Play song from Air/Local
+- Volume controller
+- Shuffle and repeat
+more to come ...
+
+
+## 🚀 About Me
+Self-Taught Flutter Developer with a Passion for Learning and Problem-Solving.
+
+
+## Authors
+
+- [@Sharathk1999](https://github.com/Sharathk1999)
+
+
+![Logo](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiaB69RTmobSUV33Qd3kJ1GhDdzR8n6nSddezY5yxdtcpCVl3rPDBPuwNkbPpS34HVTxhzN0aJ7KbmMCT2DcYiXXjD_xTcbuulYO7sVKPIOMpxZnZ8_pavFp8ZUT6-JOXKiyT3msrwbLcuYkrAvm-mEtSIwOpchrbG48TkB88EmIk98UyjJtUHqLNmcRzJv/s500/thaalam.png)
+
